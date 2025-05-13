@@ -1,14 +1,31 @@
 /* Global Styles */
 :root {
-    --primary-color: #5D4037;
-    --secondary-color: #8D6E63;
-    --light-color: #f8f9fa;
-    --dark-color: #212529;
+    --primary-color: #000000; /* Black as primary color */
+    --secondary-color: #D4AF37; /* Gold color */
+    --light-color: #1a1a1a; /* Dark gray for light elements */
+    --dark-color: #ffffff; /* White text on dark */
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-top: 56px; /* Untuk navbar fixed */
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--primary-color) !important;
+}
+
+.nav-link {
+    color: var(--dark-color) !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--secondary-color) !important;
 }
 
 /* Hero Section */
@@ -26,7 +43,36 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
+    color: #000000 !important;
+}
+
+.btn-outline-primary {
+    border-color: var(--secondary-color) !important;
+    color: var(--secondary-color) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--secondary-color) !important;
+    color: #000000 !important;
+}
+
+/* Link Styles */
+a {
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
 }
 
 /* About Section */
@@ -40,13 +86,19 @@ body {
 
 /* Catalog Section */
 .card {
+    background-color: var(--light-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
+    color: var(--dark-color);
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2) !important;
+}
+
+.card-title {
+    color: var(--secondary-color);
 }
 
 /* Gallery Section */
@@ -83,23 +135,112 @@ body {
 /* Contact Section */
 .contact-info i {
     min-width: 30px;
+    color: var(--secondary-color);
 }
 
 /* Footer */
+footer {
+    background-color: var(--primary-color) !important;
+    color: var(--dark-color);
+}
+
 .social-links a {
     display: inline-block;
     width: 40px;
     height: 40px;
     line-height: 40px;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(212, 175, 55, 0.1);
     border-radius: 50%;
     transition: background-color 0.3s ease;
+    color: var(--dark-color);
 }
 
 .social-links a:hover {
-    background-color: var(--primary-color);
-    text-decoration: none;
+    background-color: var(--secondary-color);
+    color: #000000;
+}
+
+/* Category Navigation Styles */
+.category-nav {
+    background-color: #111;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.nav-pills .nav-link {
+    color: var(--dark-color);
+    margin: 0 5px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--secondary-color);
+    color: #000000;
+    font-weight: bold;
+}
+
+.nav-pills .nav-link:hover:not(.active) {
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Subcategory Styles */
+.list-group {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.list-group-item {
+    background-color: var(--light-color);
+    border-color: #333;
+    color: var(--dark-color);
+    transition: all 0.3s ease;
+}
+
+.list-group-item.active {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #000000;
+    font-weight: bold;
+}
+
+.list-group-item:hover:not(.active) {
+    background-color: #333;
+    color: var(--secondary-color);
+    padding-left: 25px;
+}
+
+/* Badge Styles */
+.badge {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+.badge.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+.badge.bg-primary {
+    background-color: var(--secondary-color) !important;
+    color: #000000;
+}
+
+/* Form Styles */
+.form-control {
+    background-color: var(--light-color);
+    border-color: #333;
+    color: var(--dark-color);
+}
+
+.form-control:focus {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
 }
 
 /* Responsive Adjustments */
@@ -116,66 +257,4 @@ body {
         transform: translateY(0);
         background: rgba(0, 0, 0, 0.5);
     }
-}
-/* Category Navigation Styles */
-.category-nav {
-    background-color: #111;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-}
-
-.nav-pills .nav-link {
-    color: #fff;
-    margin: 0 5px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-.nav-pills .nav-link.active {
-    background-color: var(--secondary-color);
-    color: #000;
-    font-weight: bold;
-}
-
-.nav-pills .nav-link:hover:not(.active) {
-    color: var(--secondary-color);
-    transform: translateY(-2px);
-}
-
-/* Subcategory Styles */
-.list-group {
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.list-group-item {
-    background-color: #1a1a1a;
-    border-color: #333;
-    color: #fff;
-    transition: all 0.3s ease;
-}
-
-.list-group-item.active {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
-    color: #000;
-    font-weight: bold;
-}
-
-.list-group-item:hover:not(.active) {
-    background-color: #333;
-    color: var(--secondary-color);
-    padding-left: 25px;
-}
-
-/* Badge for New Items */
-.badge {
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 5px 10px;
-}
-
-.badge.bg-danger {
-    background-color: #dc3545 !important;
 }
